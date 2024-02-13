@@ -3,7 +3,6 @@ import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 class BoyGettersAndSetters extends Actor {
     private int score = 0;
     private int acts = 0;
-    private boolean isAlive = true;
     private Girl girl;
 
     public int getScore() {
@@ -34,14 +33,6 @@ class BoyGettersAndSetters extends Actor {
         setActs(0);
     }
 
-    public boolean getIsAlive() {
-        return isAlive;
-    }
-
-    public void setIsAlive(boolean a) {
-        isAlive = a;
-    }
-
     public Girl getGirl() {
         return girl;
     }
@@ -54,8 +45,7 @@ class BoyGettersAndSetters extends Actor {
 public class Boy extends BoyGettersAndSetters {
 
     public void act() {
-        if (getIsAlive())
-            updatePosition();
+        updatePosition();
     }
 
     private void onHamburgerCollision() {
@@ -97,7 +87,7 @@ public class Boy extends BoyGettersAndSetters {
 
     private void checkForGameOver() {
         if (getActs() == 20) {
-            setIsAlive(false);
+            Greenfoot.stop();
             getWorld().showText("Game Over || Punkte: " + getScore(), 5, 4);
         }
     }
