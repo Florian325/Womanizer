@@ -43,8 +43,8 @@ class BoyGettersAndSetters extends Actor {
 }
 
 public class Boy extends BoyGettersAndSetters {
-
     public void act() {
+        updateGirlPosition();
         updatePosition();
     }
 
@@ -98,7 +98,6 @@ public class Boy extends BoyGettersAndSetters {
         spawnHamburger();
         notifyHamburgersOnAct();
         onGirlCollision();
-        updateGirlPosition();
         checkForGameOver();
     }
 
